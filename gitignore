@@ -1,0 +1,6 @@
+# Contoh isi .gitignore Android
+build/
+.gradle/
+local.properties
+*.apk
+*.keystore
