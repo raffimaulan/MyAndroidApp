@@ -23,8 +23,8 @@ class _Pertemuan14State extends State<Pertemuan14> {
     _mapController = MapController();
     _determinePosition();
     _routePoints = [
-      LatLng(-6.3548, 106.7282), // Pondok Petir
-      LatLng(-6.3175, 106.7653), // Benda Baru
+      LatLng(-6.3548, 106.7282), 
+      LatLng(-6.3175, 106.7653), 
     ];
   }
 
