@@ -14,6 +14,21 @@ dependencies:
   fluttertoast: ^8.2.1 
   image_picker: ^1.0.0
   path_provider: ^2.0.0
+  font_awesome_flutter: ^10.7.0
+  google_fonts: ^6.0.0
+  lottie: ^3.1.0
+  firebase_core: ^3.14.0
+  firebase_auth: ^5.6.0
+  cloud_firestore: 5.6.9
+  firebase_storage: ^12.4.7
+  audioplayers: ^5.2.1
+  video_player: ^2.7.0
+  flutter_map: ^6.1.0
+  latlong2: ^0.9.0
+  geolocator: ^11.0.0
+  geocoding: ^2.2.0
+
+
 
 dev_dependencies:
   flutter_test:
@@ -28,3 +43,9 @@ flutter:
     - assets/FotoSampul.jpg
     - assets/profile.jpeg
     - assets/profile2.jpeg
+    - assets/Animation - 1749249007428.json
+    - assets/facebook_logo.png
+    - assets/google_logo.png
+    - assets/Chill · Jazzy · Beats by Snoozy Beats No Copyright Music Doing Good.mp3
+    - assets/videoplayback.mp4
+

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1028296314170",
+    "project_id": "apk-tugas-kuliah-4d776",
+    "storage_bucket": "apk-tugas-kuliah-4d776.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1028296314170:android:792db83ebb0b61c9ff1403",
+        "android_client_info": {
+          "package_name": "com.example.apk_tugas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAE_KAFRTq-PZXkDRUIWJYYM0DztIiy3xs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

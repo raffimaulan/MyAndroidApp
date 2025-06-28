@@ -17,8 +17,9 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
 
   final List<Widget> _screens = const [
     HomeScreen(),
-    ProfileScreen(),
     ListViewScreen(),
+    ProfileScreen(),
+   
   ];
 
   String _getTitle(int index) {
@@ -26,9 +27,9 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
       case 0:
         return 'Beranda';
       case 1:
-        return 'Profil';
+        return 'List data';
       case 2:
-        return 'List Data';
+        return 'Profile';
       default:
         return '';
     }
@@ -71,7 +72,10 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           child: BottomNavigationBar(
             currentIndex: _currentIndex,
             onTap: (index) => setState(() => _currentIndex = index),
-            backgroundColor: Theme.of(context).bottomNavigationBarTheme.backgroundColor ?? Colors.white,
+            backgroundColor: Theme.of(context)
+                    .bottomNavigationBarTheme
+                    .backgroundColor ??
+                Colors.white,
             elevation: 0,
             selectedItemColor: const Color(0xFF00C29B),
             unselectedItemColor: Colors.grey[600],
@@ -83,14 +87,14 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
                 label: 'Beranda',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person_outline),
-                activeIcon: Icon(Icons.person),
-                label: 'Profil',
-              ),
-              BottomNavigationBarItem(
                 icon: Icon(Icons.list_outlined),
                 activeIcon: Icon(Icons.list),
                 label: 'List Data',
+              ),
+                BottomNavigationBarItem(
+                icon: Icon(Icons.person_outline),
+                activeIcon: Icon(Icons.person),
+                label: 'Profil',
               ),
             ],
           ),

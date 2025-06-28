@@ -7,6 +7,11 @@ import '../screens/list_pertemuan/pertemuan5.dart';
 import '../screens/list_pertemuan/pertemuan6.dart';
 import '../screens/list_pertemuan/pertemuan7.dart';
 import '../screens/list_pertemuan/pertemuan8.dart';
+import '../screens/list_pertemuan/pertemuan9.dart';
+import '../screens/list_pertemuan/pertemuan13.dart';
+import '../screens/list_pertemuan/pertemuan14.dart';
+
+
 
 class ListViewScreen extends StatefulWidget {
   const ListViewScreen({super.key});
@@ -37,6 +42,11 @@ class _ListViewScreenState extends State<ListViewScreen> {
         'Pertemuan 6',
         'Pertemuan 7',
         'Pertemuan 8',
+        'Pertemuan 9',
+        'Pertemuan 13',
+        'Pertemuan 14',
+
+
       ];
       _isLoading = false;
     });
@@ -60,6 +70,12 @@ class _ListViewScreenState extends State<ListViewScreen> {
         return Pertemuan7();
       case 'Pertemuan 8':
         return Pertemuan8();
+      case 'Pertemuan 9':
+        return pertemuan9();
+      case 'Pertemuan 13':
+        return Pertemuan13();
+      case 'Pertemuan 14':
+        return Pertemuan14();
       default:
         print('Navigasi untuk item "$item" tidak didefinisikan.');
         return null;

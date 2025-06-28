@@ -41,7 +41,7 @@ class _Pertemuan8State extends State<Pertemuan8> {
             // Spinner / Dropdown
             DropdownButtonFormField<String>(
               decoration: const InputDecoration(
-                labelText: 'Pilih Pertemuan (Dropdown)',
+                labelText: 'Pilih Pertemuan',
                 border: OutlineInputBorder(),
               ),
               value: selectedDropdown,
@@ -84,7 +84,7 @@ class _Pertemuan8State extends State<Pertemuan8> {
                   controller: controller,
                   focusNode: focusNode,
                   decoration: const InputDecoration(
-                    labelText: 'Cari Pertemuan (Autocomplete)',
+                    labelText: 'Cari Pertemuan',
                     border: OutlineInputBorder(),
                   ),
                 );
@@ -107,7 +107,7 @@ class _Pertemuan8State extends State<Pertemuan8> {
               icon: const Icon(Icons.arrow_forward),
               label: const Text('Buka Halaman'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
+                backgroundColor: const Color.fromARGB(255, 176, 214, 206),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),

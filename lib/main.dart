@@ -1,9 +1,22 @@
+import 'package:apk_tugas/screens/edit_profile_screen.dart';
+import 'package:apk_tugas/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
-import 'bottom_nav_screen.dart';
+import 'package:apk_tugas/screens/login_page.dart';
+import 'package:apk_tugas/screens/register_page.dart';
+import 'package:apk_tugas/bottom_nav_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'screens/splash_screen.dart';
 
-void main() {
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
+
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -13,7 +26,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  ThemeMode _themeMode = ThemeMode.light; // default light
+  ThemeMode _themeMode = ThemeMode.light;
 
   void _toggleTheme() {
     setState(() {
@@ -29,6 +42,17 @@ class _MyAppState extends State<MyApp> {
       title: 'App with Dark Mode',
       debugShowCheckedModeBanner: false,
       themeMode: _themeMode,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const SplashScreen(), 
+        '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
+        '/home': (context) => BottomNavScreen(onToggleTheme: _toggleTheme),
+        '/profile': (context) => const ProfileScreen(),
+        '/edit-profile': (context) => const EditProfileScreen(),
+      },
+
+
       theme: ThemeData(
         fontFamily: 'Poppins',
         colorScheme: ColorScheme.fromSeed(
@@ -104,7 +128,6 @@ class _MyAppState extends State<MyApp> {
           bodyMedium: TextStyle(fontSize: 16),
         ),
       ),
-      home: BottomNavScreen(onToggleTheme: _toggleTheme),
     );
   }
 }
