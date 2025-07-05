@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                'Selamat Datang, Raffi!',
+                'Selamat Datang',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 30),
@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
           icon: Icons.add,
           label: 'Buat Data',
           onTap: () {
-            // TODO: Tambahkan navigasi ke halaman buat data
+            
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Fitur Buat Data belum tersedia')),
             );
@@ -52,7 +52,6 @@ class HomeScreen extends StatelessWidget {
           icon: Icons.info_outline,
           label: 'Tentang',
           onTap: () {
-            // TODO: Tambahkan navigasi ke halaman tentang
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Fitur Tentang belum tersedia')),
             );

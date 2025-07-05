@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Pertemuan8 extends StatefulWidget {
-  const Pertemuan8({Key? key}) : super(key: key);
+  const Pertemuan8({super.key});
 
   @override
   State<Pertemuan8> createState() => _Pertemuan8State();

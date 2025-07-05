@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 
 class pertemuan9 extends StatefulWidget {
@@ -6,6 +8,7 @@ class pertemuan9 extends StatefulWidget {
   @override
   State<pertemuan9> createState() => pertemuan9State();
 }
+
 
 class pertemuan9State extends State<pertemuan9>
     with SingleTickerProviderStateMixin {
@@ -18,15 +21,18 @@ class pertemuan9State extends State<pertemuan9>
   @override
   void initState() {
     super.initState();
-    _controller =
-        AnimationController(duration: const Duration(milliseconds: 500), vsync: this);
-    _offsetAnimation =
-        Tween<Offset>(begin: const Offset(0.0, 0.3), end: Offset.zero).animate(
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 500),
+      vsync: this,
+    );
+    _offsetAnimation = Tween<Offset>(
+      begin: const Offset(0.0, 0.3),
+      end: Offset.zero,
+    ).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeOut),
     );
 
-    // mulai animasi saat halaman dibuka
-    _controller.forward();
+    _controller.forward(); // animasi saat masuk
   }
 
   Future<void> _pickTime() async {
@@ -63,6 +69,11 @@ class pertemuan9State extends State<pertemuan9>
     required String value,
     required VoidCallback onTap,
   }) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final cardColor = isDark ? Colors.grey[850] : const Color(0xFFFDF1EB);
+    final textColor = isDark ? Colors.white : Colors.black;
+    final subTextColor = isDark ? Colors.grey[300] : Colors.grey;
+
     return SlideTransition(
       position: _offsetAnimation,
       child: InkWell(
@@ -72,7 +83,7 @@ class pertemuan9State extends State<pertemuan9>
           padding: const EdgeInsets.all(16),
           margin: const EdgeInsets.only(bottom: 20),
           decoration: BoxDecoration(
-            color: const Color(0xFFFDF1EB), // krem terang
+            color: cardColor,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(
@@ -83,19 +94,25 @@ class pertemuan9State extends State<pertemuan9>
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+                    Text(
+                      title,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: textColor,
+                      ),
+                    ),
                     AnimatedSwitcher(
                       duration: const Duration(milliseconds: 300),
                       child: Text(
                         value,
                         key: ValueKey<String>(value),
-                        style: const TextStyle(color: Colors.grey),
+                        style: TextStyle(color: subTextColor),
                       ),
                     ),
                   ],
                 ),
               ),
-              const Icon(Icons.edit_calendar_outlined, color: Colors.grey),
+              Icon(Icons.edit_calendar_outlined, color: subTextColor),
             ],
           ),
         ),
@@ -111,8 +128,10 @@ class pertemuan9State extends State<pertemuan9>
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: isDark ? Colors.black : Colors.grey[200],
       appBar: AppBar(
         backgroundColor: const Color(0xFF00C29B),
         title: const Text(

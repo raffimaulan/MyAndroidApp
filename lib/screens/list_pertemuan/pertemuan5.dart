@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Pertemuan5 extends StatefulWidget {
-  const Pertemuan5({Key? key}) : super(key: key);
+  const Pertemuan5({super.key});
 
   @override
   Pertemuan5State createState() => Pertemuan5State();
@@ -106,8 +106,8 @@ class Pertemuan5State extends State<Pertemuan5> {
             ),
           );
         },
-        child: const Icon(Icons.list),
         backgroundColor:  const Color(0xFF00C29B),
+        child: const Icon(Icons.list),
       ),
     );
   }

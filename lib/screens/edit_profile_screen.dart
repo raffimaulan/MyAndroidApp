@@ -142,6 +142,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     Fluttertoast.showToast(msg: "Profil berhasil disimpan", backgroundColor: Colors.green);
 
     setState(() => _isLoading = false);
+    // ignore: use_build_context_synchronously
     Navigator.pop(context);
   }
 

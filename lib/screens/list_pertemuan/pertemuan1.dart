@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Pertemuan1 extends StatelessWidget {
+  const Pertemuan1({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -63,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text('Login dengan Google belum diimplementasikan'),
-        backgroundColor:const Color(0xFF00C29B),
+        backgroundColor: Color(0xFF00C29B),
       ),
     );
   }
@@ -72,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text('Login dengan Facebook belum diimplementasikan'),
-        backgroundColor:const Color(0xFF00C29B),
+        backgroundColor: Color(0xFF00C29B),
       ),
     );
   }

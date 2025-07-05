@@ -3,7 +3,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:video_player/video_player.dart';
 
 class Pertemuan13 extends StatefulWidget {
-  const Pertemuan13({Key? key}) : super(key: key);
+  const Pertemuan13({super.key});
 
   @override
   State<Pertemuan13> createState() => _Pertemuan13State();
@@ -37,7 +37,9 @@ class _Pertemuan13State extends State<Pertemuan13> {
     if (isPlaying) {
       await _audioPlayer.pause();
     } else {
-      await _audioPlayer.play(AssetSource('assets/Chill · Jazzy · Beats by Snoozy Beats No Copyright Music Doing Good.mp3'));
+      await _audioPlayer.play(
+        AssetSource('assets/Chill · Jazzy · Beats by Snoozy Beats No Copyright Music Doing Good.mp3'),
+      );
     }
 
     setState(() {
@@ -57,35 +59,41 @@ class _Pertemuan13State extends State<Pertemuan13> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final backgroundColor = isDark ? Colors.black : const Color(0xFF00C29B);
+    final cardColor = isDark ? Colors.grey[850] : Colors.white;
+    final textColor = isDark ? Colors.white : Colors.black;
+
     return Scaffold(
-      backgroundColor:  const Color(0xFF00C29B),
+      backgroundColor: backgroundColor,
       appBar: AppBar(
-        backgroundColor:  const Color(0xFF00C29B),
+        backgroundColor: backgroundColor,
         elevation: 0,
-        title: const Text(
+        title: Text(
           'Pertemuan 13',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
         ),
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: IconThemeData(color: textColor),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            // AUDIO PLAYER - Modern Pink Style
+            // AUDIO PLAYER
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(20),
               margin: const EdgeInsets.only(bottom: 20),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: cardColor,
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
-                  BoxShadow(
-                    color:  const Color(0xFF00C29B).withOpacity(0.1),
-                    blurRadius: 15,
-                    offset: const Offset(0, 8),
-                  ),
+                  if (!isDark)
+                    BoxShadow(
+                      color: const Color(0xFF00C29B).withOpacity(0.1),
+                      blurRadius: 15,
+                      offset: const Offset(0, 8),
+                    ),
                 ],
               ),
               child: Row(
@@ -95,18 +103,19 @@ class _Pertemuan13State extends State<Pertemuan13> {
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
                           'Chill · Jazzy · Beats by Snoozy Beats No Copyright Music Doing Good.mp3',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
+                            color: textColor,
                           ),
                         ),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                         Text(
                           'Jazzy',
-                          style: TextStyle(color: Colors.grey),
+                          style: TextStyle(color: isDark ? Colors.grey[400] : Colors.grey),
                         ),
                       ],
                     ),
@@ -122,7 +131,7 @@ class _Pertemuan13State extends State<Pertemuan13> {
                       style: const TextStyle(color: Colors.white),
                     ),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor:  const Color(0xFF00C29B),
+                      backgroundColor: const Color(0xFF00C29B),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -138,27 +147,32 @@ class _Pertemuan13State extends State<Pertemuan13> {
               width: double.infinity,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: cardColor,
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
-                  BoxShadow(
-                    color: Colors.black12,
-                    blurRadius: 10,
-                    offset: const Offset(0, 5),
-                  )
+                  if (!isDark)
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 10,
+                      offset: const Offset(0, 5),
+                    ),
                 ],
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'videoplayback.mp4',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: textColor,
+                    ),
                   ),
                   const SizedBox(height: 8),
-                  const Text(
+                  Text(
                     'play back',
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(color: isDark ? Colors.grey[400] : Colors.grey),
                   ),
                   const SizedBox(height: 12),
                   _videoController.value.isInitialized
@@ -180,8 +194,8 @@ class _Pertemuan13State extends State<Pertemuan13> {
                                     _videoController,
                                     allowScrubbing: true,
                                     colors: VideoProgressColors(
-                                      playedColor:  const Color(0xFF00C29B),
-                                      bufferedColor:  const Color(0xFF00C29B),
+                                      playedColor: const Color(0xFF00C29B),
+                                      bufferedColor: const Color(0xFF00C29B),
                                       backgroundColor: Colors.grey[300]!,
                                     ),
                                   ),
@@ -192,7 +206,7 @@ class _Pertemuan13State extends State<Pertemuan13> {
                                             ? Icons.pause_circle_filled
                                             : Icons.play_circle_fill,
                                         size: 48,
-                                        color:  const Color(0xFF00C29B),
+                                        color: const Color(0xFF00C29B),
                                       ),
                                       onPressed: _playPauseVideo,
                                     ),

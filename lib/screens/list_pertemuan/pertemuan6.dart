@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Pertemuan6 extends StatefulWidget {
-  const Pertemuan6({Key? key}) : super(key: key);
+  const Pertemuan6({super.key});
 
   @override
   Pertemuan6State createState() => Pertemuan6State();
@@ -89,8 +89,8 @@ class Pertemuan6State extends State<Pertemuan6> {
             _toggleSelectAll(!_selectAll);
           });
         },
-        child: Icon(_selectAll ? Icons.check_box : Icons.check_box_outline_blank),
         backgroundColor:  const Color(0xFF00C29B),
+        child: Icon(_selectAll ? Icons.check_box : Icons.check_box_outline_blank),
       ),
       body: Column(
         children: [

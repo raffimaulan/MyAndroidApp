@@ -23,8 +23,8 @@ class _Pertemuan14State extends State<Pertemuan14> {
     _mapController = MapController();
     _determinePosition();
     _routePoints = [
-      LatLng(-6.3548, 106.7282), 
-      LatLng(-6.3175, 106.7653), 
+      LatLng(-6.3548, 106.7282),
+      LatLng(-6.3175, 106.7653),
     ];
   }
 
@@ -58,8 +58,13 @@ class _Pertemuan14State extends State<Pertemuan14> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
-      appBar: AppBar(title: const Text("Pertemuan 14")),
+      appBar: AppBar(
+        title: const Text("Pertemuan 14"),
+        backgroundColor: isDark ? Colors.grey[900] : null,
+      ),
       body: Stack(
         children: [
           FlutterMap(
@@ -70,8 +75,7 @@ class _Pertemuan14State extends State<Pertemuan14> {
             ),
             children: [
               TileLayer(
-                urlTemplate:
-                    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 subdomains: const ['a', 'b', 'c'],
                 userAgentPackageName: 'com.example.apk_tugas',
               ),
@@ -104,40 +108,43 @@ class _Pertemuan14State extends State<Pertemuan14> {
             ],
           ),
 
-        
+          // Search Box
           Positioned(
-                    top: 20,
-                    left: 16,
-                    right: 16,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10,
-                            offset: const Offset(0, 4),
-                          ),
-                        ],
-                      ),
-                      child: TextField(
-                        onSubmitted: (val) {
-                          setState(() => _searchText = val);
-                          _searchLocation(val);
-                        },
-                        decoration: const InputDecoration(
-                          hintText: "Cari Alamat...",
-                          border: InputBorder.none,
-                          prefixIcon: Icon(Icons.location_on, size: 24, color: Colors.grey),
-                          contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-                        ),
-                      ),
+            top: 20,
+            left: 16,
+            right: 16,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              decoration: BoxDecoration(
+                color: isDark ? Colors.grey[850] : Colors.white,
+                borderRadius: BorderRadius.circular(30),
+                boxShadow: [
+                  if (!isDark)
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 10,
+                      offset: const Offset(0, 4),
                     ),
-                  ),
+                ],
+              ),
+              child: TextField(
+                onSubmitted: (val) {
+                  setState(() => _searchText = val);
+                  _searchLocation(val);
+                },
+                style: TextStyle(color: isDark ? Colors.white : Colors.black),
+                decoration: InputDecoration(
+                  hintText: "Cari Alamat...",
+                  hintStyle: TextStyle(color: isDark ? Colors.grey : Colors.grey[700]),
+                  border: InputBorder.none,
+                  prefixIcon: Icon(Icons.location_on, size: 24, color: isDark ? Colors.white70 : Colors.grey),
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                ),
+              ),
+            ),
+          ),
 
-          // 📍 Lokasi Saya & Search Manual
+          // Tombol
           Positioned(
             bottom: 30,
             right: 16,
@@ -151,6 +158,7 @@ class _Pertemuan14State extends State<Pertemuan14> {
                       _mapController.move(_currentPosition!, 15);
                     }
                   },
+                  backgroundColor: isDark ? Colors.teal[700] : null,
                   child: const Icon(Icons.my_location),
                 ),
                 const SizedBox(height: 10),
@@ -160,11 +168,12 @@ class _Pertemuan14State extends State<Pertemuan14> {
                   onPressed: () {
                     _searchLocation(_searchText);
                   },
+                  backgroundColor: isDark ? Colors.deepOrange[700] : null,
                   child: const Icon(Icons.search),
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

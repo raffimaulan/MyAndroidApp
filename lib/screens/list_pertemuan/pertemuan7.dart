@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Pertemuan7 extends StatefulWidget {
+  const Pertemuan7({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _Pertemuan7State createState() => _Pertemuan7State();
 }
 
@@ -92,7 +95,7 @@ class _Pertemuan7State extends State<Pertemuan7> {
                     activeColor: const Color.fromARGB(255, 20, 92, 218),
                   ),
                 );
-              }).toList(),
+              }),
 
               // Checkbox Terms
               Row(
